@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f1e 0%, #1f1f3a 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: rgba(15, 15, 15, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 247, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.1);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.login-container h2 {
+    font-family: "Orbitron", sans-serif;
+    color: #00f7ff;
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+.login-container p {
+    color: #b8b8d0;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00f7ff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 247, 255, 0.3);
+    background-color: #0a0a0a;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #00f7ff;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.3);
+}
+
+.btn-entrar {
+    background: linear-gradient(90deg, #00f7ff, #0066ff);
+    color: #000;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-entrar:hover {
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+}
+
+.links { margin-top: 20px; font-size: 13px; }
+.links a { color: #b8b8d0; text-decoration: none; display: block; margin-top: 10px; transition: 0.3s;}
+.links a:hover { color: #00f7ff; text-shadow: 0 0 5px #00f7ff; }

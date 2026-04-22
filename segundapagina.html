@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrocaTech Escolar</title>
+    <link rel="stylesheet" href="segundapagina.css">
+    <script src="sengundapagina.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h2>🔄 TrocaTech</h2>
+        <div class="busca-container">
+            <input type="text" id="campo-busca" placeholder="Buscar peças, Arduino, livros...">
+            <select id="filtro-condicao">
+                <option value="todos">Qualquer Estado</option>
+                <option value="novo">🟢 Novo</option>
+                <option value="usado">🟡 Usado</option>
+                <option value="defeito">🔴 Com Defeito</option>
+            </select>
+        </div>
+        <a href="login.html">Login</a>
+    </header>
+
+    <nav id="menu-filtros">
+        <button class="ativo" data-filtro="todos">Todos</button>
+        <button data-filtro="pecas">Peças de Computador</button>
+        <button data-filtro="micro">Microcontroladores</button>
+        <button data-filtro="livros">Livros Usados</button>
+    </nav>
+
+    <main id="lista-produtos">
+        
+        <div class="card" data-categoria="micro" data-condicao="usado">
+            <span class="badge usado">🟡 Usado</span>
+            <h3>Placa Arduino Uno R3</h3>
+            <p><strong>Categoria:</strong> Microcontroladores</p>
+            <p><strong>Dono:</strong> Joao_Silva</p>
+            <p class="descricao">Funcionando perfeitamente. Usei na feira de ciências.</p>
+            <button class="btn-chat">💬 Chamar no Chat</button>
+            <button class="btn-denunciar">🚩 Denunciar</button>
+        </div>
+
+        <div class="card" data-categoria="pecas" data-condicao="defeito">
+            <span class="badge defeito">🔴 Com Defeito</span>
+            <h3>Memória RAM 4GB DDR3</h3>
+            <p><strong>Categoria:</strong> Peças de Computador</p>
+            <p><strong>Dono:</strong> MariaEduarda_99</p>
+            <p class="descricao">PC não dá vídeo com ela. Boa para quem sabe consertar.</p>
+            <button class="btn-chat">💬 Chamar no Chat</button>
+            <button class="btn-denunciar">🚩 Denunciar</button>
+        </div>
+
+        <div class="card" data-categoria="livros" data-condicao="novo">
+            <span class="badge novo">🟢 Novo</span>
+            <h3>Livro: Lógica de Programação</h3>
+            <p><strong>Categoria:</strong> Livros Usados</p>
+            <p><strong>Dono:</strong> Pedro_H</p>
+            <p class="descricao">Comprei errado, está no plástico ainda. Troco por kit.</p>
+            <button class="btn-chat">💬 Chamar no Chat</button>
+            <button class="btn-denunciar">🚩 Denunciar</button>
+        </div>
+
+    </main>
+
+</body>
+</html>

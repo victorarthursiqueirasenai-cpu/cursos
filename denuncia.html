@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denunciar - TrocaTech Escolar</title>
+    <link rel="stylesheet" href="denuncia.css">
+    <script src="denuncia.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h2>🔄 TrocaTech</h2>
+        <a href="index.html" class="btn-voltar">⬅ Voltar ao Feed</a></a>
+    </header>
+
+    <div class="denuncia-container">
+        <div class="alerta-topo">
+            <h2>🚩 Fazer uma Denúncia</h2>
+            <p>A coordenação analisará este caso. Denúncias falsas também são passíveis de punição.</p>
+        </div>
+
+        <form id="form-denuncia">
+            <div class="input-group">
+                <label for="aluno-denunciado">Nome do Aluno Denunciado (Username)</label>
+                <input type="text" id="aluno-denunciado" placeholder="Ex: Joao_Silva" required>
+            </div>
+
+            <div class="input-group">
+                <label for="motivo">Motivo da Denúncia</label>
+                <select id="motivo" required>
+                    <option value="">Selecione o motivo...</option>
+                    <option value="fraude">Anunciou como Novo, mas estava Quebrado/Com Defeito</option>
+                    <option value="roubo">Pegou minha peça e não entregou a dele (Roubo/Golpe)</option>
+                    <option value="falso">Item falsificado (Ex: Arduino não original)</option>
+                    <option value="ofensa">Ofensa ou assédio no Chat</option>
+                    <option value="outro">Outro motivo</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="descricao">Descreva o que aconteceu com detalhes</label>
+                <textarea id="descricao" rows="5" placeholder="Explique como o combinado foi quebrado..." required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="prova">Anexar Prova (Print da conversa ou foto da peça)</label>
+                <input type="file" id="prova" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn-denunciar-acao">🚨 Enviar Denúncia para a Coordenação</button>
+        </form>
+    </div>
+
+</body>
+</html>
