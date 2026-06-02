@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace conversão_de_moedas
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Qual é a cotação do dolár? ");
+            double cotacao = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+
+            Console.Write("Quantos dolares voce vai comprar");
+            double quantia = double.Parse(Console.ReadLine(),CultureInfo.InvariantCulture);
+
+            double result = Conversao.DolarParaReal(cotacao, quantia);
+            
+            Console.WriteLine("Valor a ser pago em reais = " +result.ToString());
+        }
+    }
+}
