@@ -1,0 +1,121 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Controle_de_estoque
+{
+    public partial class txtproduto : Form
+    {
+        private List<Produto> listaEstoque = new List<Produto>();
+
+        public txtproduto()
+        {
+            InitializeComponent();
+
+            ConfigurarGrade();
+            txtnome.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void ConfigurarGrade()
+        {
+            dgvEstoque.Columns.Clear();
+            dgvEstoque.Columns.Add("colNome", "Produto");
+            dgvEstoque.Columns.Add("colQuantidade", "Quantidade");
+            dgvEstoque.Columns.Add("colValor", "Total do Item");
+            dgvEstoque.Columns.Add("colTotalItem", "Total do Item");
+
+            dgvEstoque.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEstoque.AllowUserToAddRows = false;
+            dgvEstoque.ReadOnly = true;
+        }
+
+        private void btnSalvar_Clik(object sender, EventArgs e)
+        {
+            string nome = txtnome.Text.Trim();
+            if (string.IsNullOrEmpty(nome) || !int.TryParse(txtquantidade.Text,
+                out int quantidade) || !decimal.TryParse(txtValor.Text, out decimal valor))
+            {
+                MessageBox.Show("Preencha todos os campos corretamente!", "Aviso", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+            Produto novoProduto = new Produto();
+            {
+                Nome = nome, Quantidade = quantidade, Valor = valor
+            }
+            ;
+            listaEstoque.Add(novoProduto);
+            AtualizarTabelaTela();
+            txtnome.Clear(); 
+            txtquantidade.Clear(); 
+            txtValor.Clear(); 
+            txtnome.Focus();
+        }
+
+        private void AtualizarTabelaTela()
+        {
+            dgvEstoque.Rows.Clear();
+            decimal valorTotalAcumulado = 0;
+
+            foreach (Produto prod in listaEstoque)
+            {
+                decimal totalDoItem = prod.Quantidade * prod.Valor;
+                valorTotalAcumulado += totalDoItem;
+
+                dgvEstoque.Rows.Add(prod.Nome, prod.Quantidade, prod.Valor.ToString("C"),
+                    totalDoItem.ToString("C"));
+            }
+        }
+        
+        private void txtname_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back) return;
+            if (e.KeyChar == ',' && !txtValor.Text.Contains(",")) return;
+            e.Handled = true;
+        }
+
+        private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back) return;
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+
+        }
+
+        private void btnSaida_Click(object sender, EventArgs e)
+        {
+            if(dgvEstoque.CurrentRow == null)
+            {
+                MessageBox.Show("Selecione um produto na tabela antes de dar saída.", "Aviso",
+                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            int indexSelecionado = dgvEstoque.CurrentRow.Index;
+            Produto produtoSelecionado = listaEstoqueEstoque[indexSelecionado];
+            if
+
+        }
+    }
+    public class Produto
+    {
+        public string Nome { get; set; }
+        public int Quantidade { get; set; }
+        public decimal Valor { get; set; }
+    }
+}
