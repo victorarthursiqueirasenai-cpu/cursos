@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Consoledeestoque
+{
+    public partial class Form1 : Form
+    {
+        public List<Produto> ListaEstoque = new List<Produto>();
+        public Form1()
+        {
+            InitializeComponent();
+            ConfigurarGrade();
+            txtNome.CharacterCasing = CharacterCasing.Upper;
+        }
+
+        private void ConfigurarGrade()
+        {
+            dgvEstoque.Columns.Clear();
+            dgvEstoque.Columns.Add("colNome", "Poduto");
+            dgvEstoque.Columns.Add("colQuantidade", "Quantidade");
+            dgvEstoque.Columns.Add("colValor", "Preço Unitario");
+            dgvEstoque.Columns.Add("colTotalItem", "Total do Item");
+
+            dgvEstoque.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEstoque.AllowUserToAddRows = false;
+            dgvEstoque.ReadOnly = true;
+            dgvEstoque.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQuantidade_Keypress(object sender, KeyPressEventArgs e)
+        {/*
+            if (char.IsDigit(e.KeyChar) && e.KeyChar) !=(char)Keys.Back) return;
+            if (e.KeyChar == ',' && !TxtValor.Text.Contains(",")) return;
+                e.Handled = true;
+      */  }
+
+        private void txtQuantidade_keyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            { 
+                e.Handled = true;
+            }
+        }
+
+        private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if (!char.IsDigit(e.KeyChar) || e.KeyChar != (char)Keys.Back)
+                if (e.KeyChar == ',' && !TxtValor.Text.Contains(",")) return;
+                e.Handled = true;
+            }
+        
+        }
+    }
+
+    public class Produto
+    {
+        public string Name { get; set; }
+        public int Quantidade { get; set; }
+        public decimal Valor { get; set; }
+    }
+}
